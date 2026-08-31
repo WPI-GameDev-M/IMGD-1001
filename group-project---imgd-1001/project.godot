@@ -23,6 +23,14 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Group Project - IMGD 1001"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://scenes/": "purple",
+"res://scripts/": "pink"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

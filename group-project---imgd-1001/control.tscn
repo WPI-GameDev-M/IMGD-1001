@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cnktxqq85r7li"]
+
+[ext_resource type="Texture2D" uid="uid://bmeu4abdrha3a" path="res://assets/TemporaryName.png" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://b44iuat7yb42f" path="res://assets/button.png" id="2_62e2m"]
+
+[node name="Control" type="Control" unique_id=669088145]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 259.0
+offset_top = 36.0
+offset_right = 259.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1590072684]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 144.0
+offset_right = 286.0
+offset_bottom = 184.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1433960492]
+layout_mode = 2
+
+[node name="TemporaryName" type="Sprite2D" parent="HBoxContainer" unique_id=208276445]
+position = Vector2(267, 13)
+texture = ExtResource("1_0fbet")
+
+[node name="Button" type="Sprite2D" parent="HBoxContainer" unique_id=1202241630]
+texture = ExtResource("2_62e2m")
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/Button" unique_id=301677915]
+offset_left = -119.0
+offset_top = -50.0
+offset_right = 111.0
+offset_bottom = 44.0
+text = "Start"
+placeholder_text = "Placeholder Text"
+
+[node name="Button2" type="Sprite2D" parent="HBoxContainer" unique_id=1476018610]
+position = Vector2(461, -2)
+texture = ExtResource("2_62e2m")
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/Button2" unique_id=1073686639]
+offset_left = -126.0
+offset_top = -49.0
+offset_right = 119.0
+offset_bottom = 39.0
+text = "Exit"
+placeholder_text = "Placeholder Text2"
+
+[node name="Button3" type="Sprite2D" parent="HBoxContainer" unique_id=1011314220]
+position = Vector2(0, 164)
+texture = ExtResource("2_62e2m")
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/Button3" unique_id=1937186799]
+offset_left = -126.0
+offset_top = -53.0
+offset_right = 109.0
+offset_bottom = 45.0
+text = "Version Control"
+placeholder_text = "Placeholder Text"
+
+[node name="Button4" type="Sprite2D" parent="HBoxContainer" unique_id=1211500118]
+position = Vector2(461, 164)
+texture = ExtResource("2_62e2m")
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/Button4" unique_id=491548618]
+offset_left = -120.0
+offset_top = -57.0
+offset_right = 122.0
+offset_bottom = 45.0
+text = "Credits"
+placeholder_text = "Placeholder Text"
