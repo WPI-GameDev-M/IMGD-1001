@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Group Project - IMGD 1001"
+run/main_scene="uid://d3poi7syu45bp"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/use_filter=false
+boot_splash/image="uid://sb5dkhqj770t"
+config/icon="res://boot-splash/icon.svg"
+boot_splash/minimum_display_time=3000
 
 [display]
 
