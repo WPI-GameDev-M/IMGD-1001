@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Group Project - IMGD 1001"
-run/main_scene="uid://d3poi7syu45bp"
+run/main_scene="uid://di13qcsprqrgo"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
