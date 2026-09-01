@@ -43,6 +43,8 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" unique_id=203158111]
+position = Vector2(564, 292)
+scale = Vector2(5, 5)
 script = ExtResource("1_p01vo")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1613041817]
@@ -51,10 +53,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.5
-offset_top = -56.5
-offset_right = 108.5
-offset_bottom = 56.5
+offset_left = -111.8
+offset_top = -58.4
+offset_right = 118.19998
+offset_bottom = 71.99999
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
