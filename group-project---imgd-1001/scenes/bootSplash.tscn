@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3poi7syu45bp"]
 
-[ext_resource type="Texture2D" uid="uid://sb5dkhqj770t" path="res://boot-splash/Worcester-Polytechnic-Institute-WPI-Logo-Vector.svg-.png" id="1_5h3ct"]
+[ext_resource type="Texture2D" uid="uid://sb5dkhqj770t" path="res://assets/boot-splash/Worcester-Polytechnic-Institute-WPI-Logo-Vector.svg-.png" id="1_5h3ct"]
 
 [node name="control" type="Control" unique_id=883817875]
 layout_mode = 3
