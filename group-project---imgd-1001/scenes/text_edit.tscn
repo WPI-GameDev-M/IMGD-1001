@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cwbdsane21qwp"]
+
+[node name="TextEdit" type="TextEdit" unique_id=825637063]
+offset_right = 245.0
+offset_bottom = 423.0
+text = "Created by:
+-Max
+-Schuyler
+-Tristan
+-Yonotan
+
+Version Notes:
+-0.0.1: Title screen added."
+scroll_smooth = true

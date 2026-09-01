@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://sb5dkhqj770t" path="res://assets/boot-splash/Worcester-Polytechnic-Institute-WPI-Logo-Vector.svg-.png" id="1_ons0g"]
 [ext_resource type="Script" uid="uid://cp8mcvx53f60h" path="res://scenes/boot_splash_1.1.gd" id="1_p01vo"]
+[ext_resource type="PackedScene" uid="uid://1f8dk3jghh2t" path="res://scenes/scroll_container.tscn" id="3_qar8e"]
 
 [sub_resource type="Animation" id="Animation_p01vo"]
 length = 0.001
@@ -68,5 +69,11 @@ texture = ExtResource("1_ons0g")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2106804305]
 libraries/ = SubResource("AnimationLibrary_0tgu6")
 autoplay = &"fade_out"
+
+[node name="ScrollContainer" parent="." unique_id=52066522 instance=ExtResource("3_qar8e")]
+offset_left = 16.0
+offset_top = 27.0
+offset_right = 225.0
+offset_bottom = 307.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
