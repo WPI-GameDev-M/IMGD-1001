@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://cnktxqq85r7li"]
+
+[ext_resource type="Texture2D" uid="uid://bmeu4abdrha3a" path="res://assets/TemporaryName.png" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://cl2gaxqoynqhe" path="res://scripts/main_menu.gd" id="1_wu84c"]
+[ext_resource type="Texture2D" uid="uid://b44iuat7yb42f" path="res://assets/button.png" id="3_8ln24"]
+
+[node name="Main Menu" type="Control" unique_id=669088145]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu84c")
+
+[node name="TemporaryName" type="TextureRect" parent="." unique_id=521411454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bqqt6")
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="TemporaryName" unique_id=504904421]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -80.0
+offset_right = 310.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Button" type="Button" parent="TemporaryName/GridContainer" unique_id=542221983]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="TemporaryName/GridContainer/Button" unique_id=101634196]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_8ln24")
+
+[node name="Label" type="Label" parent="TemporaryName/GridContainer/Button" unique_id=344825964]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Start Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="TemporaryName/GridContainer" unique_id=1709719776]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="TemporaryName/GridContainer/Button2" unique_id=532033656]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_8ln24")
+
+[node name="Label" type="Label" parent="TemporaryName/GridContainer/Button2" unique_id=250295019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Version 
+Notes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="TemporaryName/GridContainer" unique_id=817823148]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="TemporaryName/GridContainer/Button3" unique_id=164857804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_8ln24")
+
+[node name="Label" type="Label" parent="TemporaryName/GridContainer/Button3" unique_id=767761377]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button4" type="Button" parent="TemporaryName/GridContainer" unique_id=2121953967]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="TemporaryName/GridContainer/Button4" unique_id=1304984088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_8ln24")
+
+[node name="Label" type="Label" parent="TemporaryName/GridContainer/Button4" unique_id=1125786290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TemporaryName/GridContainer/Button" to="." method="_on_button_pressed_Start"]
+[connection signal="pressed" from="TemporaryName/GridContainer/Button2" to="." method="_on_button_2_pressed_Version_Notes"]
+[connection signal="pressed" from="TemporaryName/GridContainer/Button3" to="." method="_on_button_3_pressed_Credits"]
+[connection signal="pressed" from="TemporaryName/GridContainer/Button4" to="." method="_on_button_4_pressed_Exit"]

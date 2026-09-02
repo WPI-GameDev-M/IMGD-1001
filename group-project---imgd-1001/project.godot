@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Group Project - IMGD 1001"
-run/main_scene="uid://di13qcsprqrgo"
+run/main_scene="uid://b0pgb4grmq54g"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 boot_splash/use_filter=false
 boot_splash/image="uid://sb5dkhqj770t"
 config/icon="res://assets/boot-splash/icon.svg"
@@ -22,6 +23,10 @@ boot_splash/minimum_display_time=1000
 [audio]
 
 buses/default_bus_layout="uid://gtbsglfp3r6y"
+
+[autoload]
+
+BootSplash="*uid://di13qcsprqrgo"
 
 [display]
 
