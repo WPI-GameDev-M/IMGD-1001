@@ -27,6 +27,7 @@ buses/default_bus_layout="uid://gtbsglfp3r6y"
 [autoload]
 
 BootSplash="*uid://di13qcsprqrgo"
+Music="*uid://dj0kgwolf2rwu"
 
 [display]
 

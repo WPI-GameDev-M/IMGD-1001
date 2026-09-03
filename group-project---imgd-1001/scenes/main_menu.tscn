@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bmeu4abdrha3a" path="res://assets/TemporaryName.png" id="1_bqqt6"]
 [ext_resource type="Script" uid="uid://cl2gaxqoynqhe" path="res://scripts/main_menu.gd" id="1_wu84c"]
 [ext_resource type="Texture2D" uid="uid://b44iuat7yb42f" path="res://assets/button.png" id="3_8ln24"]
+[ext_resource type="AudioStream" uid="uid://bjy1648nntqw2" path="res://assets/audio/sounds/button_pop.mp3" id="4_wu84c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font_size = 23
 
 [node name="Main Menu" type="Control" unique_id=669088145]
 layout_mode = 3
@@ -13,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wu84c")
 
-[node name="TemporaryName" type="TextureRect" parent="." unique_id=521411454]
+[node name="background" type="TextureRect" parent="." unique_id=521411454]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +27,7 @@ grow_vertical = 2
 texture = ExtResource("1_bqqt6")
 stretch_mode = 5
 
-[node name="GridContainer" type="GridContainer" parent="TemporaryName" unique_id=504904421]
+[node name="buttonsContainer" type="GridContainer" parent="." unique_id=504904421]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -38,12 +42,12 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="Button" type="Button" parent="TemporaryName/GridContainer" unique_id=542221983]
+[node name="Button" type="Button" parent="buttonsContainer" unique_id=542221983]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="TemporaryName/GridContainer/Button" unique_id=101634196]
+[node name="TextureRect" type="TextureRect" parent="buttonsContainer/Button" unique_id=101634196]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +57,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_8ln24")
 
-[node name="Label" type="Label" parent="TemporaryName/GridContainer/Button" unique_id=344825964]
+[node name="Label" type="Label" parent="buttonsContainer/Button" unique_id=344825964]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,12 +69,12 @@ text = "Start Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="TemporaryName/GridContainer" unique_id=1709719776]
+[node name="Button2" type="Button" parent="buttonsContainer" unique_id=1709719776]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="TemporaryName/GridContainer/Button2" unique_id=532033656]
+[node name="TextureRect" type="TextureRect" parent="buttonsContainer/Button2" unique_id=532033656]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,7 +84,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_8ln24")
 
-[node name="Label" type="Label" parent="TemporaryName/GridContainer/Button2" unique_id=250295019]
+[node name="Label" type="Label" parent="buttonsContainer/Button2" unique_id=250295019]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,12 +97,12 @@ Notes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button3" type="Button" parent="TemporaryName/GridContainer" unique_id=817823148]
+[node name="Button3" type="Button" parent="buttonsContainer" unique_id=817823148]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="TemporaryName/GridContainer/Button3" unique_id=164857804]
+[node name="TextureRect" type="TextureRect" parent="buttonsContainer/Button3" unique_id=164857804]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,7 +112,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_8ln24")
 
-[node name="Label" type="Label" parent="TemporaryName/GridContainer/Button3" unique_id=767761377]
+[node name="Label" type="Label" parent="buttonsContainer/Button3" unique_id=767761377]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -120,12 +124,12 @@ text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button4" type="Button" parent="TemporaryName/GridContainer" unique_id=2121953967]
+[node name="Button4" type="Button" parent="buttonsContainer" unique_id=2121953967]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="TemporaryName/GridContainer/Button4" unique_id=1304984088]
+[node name="TextureRect" type="TextureRect" parent="buttonsContainer/Button4" unique_id=1304984088]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,7 +139,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_8ln24")
 
-[node name="Label" type="Label" parent="TemporaryName/GridContainer/Button4" unique_id=1125786290]
+[node name="Label" type="Label" parent="buttonsContainer/Button4" unique_id=1125786290]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -147,7 +151,174 @@ text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="TemporaryName/GridContainer/Button" to="." method="_on_button_pressed_Start"]
-[connection signal="pressed" from="TemporaryName/GridContainer/Button2" to="." method="_on_button_2_pressed_Version_Notes"]
-[connection signal="pressed" from="TemporaryName/GridContainer/Button3" to="." method="_on_button_3_pressed_Credits"]
-[connection signal="pressed" from="TemporaryName/GridContainer/Button4" to="." method="_on_button_4_pressed_Exit"]
+[node name="credits" type="PanelContainer" parent="." unique_id=1848911055]
+visible = false
+custom_maximum_size = Vector2(400, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 376.0
+offset_top = 238.0
+offset_right = -376.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="credits" unique_id=1104103020]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="credits/VBoxContainer" unique_id=1323691557]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="credits/VBoxContainer/ScrollContainer" unique_id=246493382]
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 6
+offset_transform_enabled = true
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="credits/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1453234816]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Credits:
+- Max"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="credits/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=434104492]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "- Yonathan"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="credits/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=835728049]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "- Schuyler"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="credits/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=2048082044]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "- Tristan
+"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="credits/VBoxContainer" unique_id=1702069057]
+custom_maximum_size = Vector2(-1, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Back"
+icon_alignment = 1
+
+[node name="versionNotes" type="PanelContainer" parent="." unique_id=220121888]
+visible = false
+custom_maximum_size = Vector2(700, 350)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 199.0
+offset_right = -232.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="versionNotes" unique_id=272055479]
+custom_maximum_size = Vector2(-1, 350)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="versionNotes/VBoxContainer" unique_id=1663476536]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="versionNotes/VBoxContainer/ScrollContainer" unique_id=1646526642]
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+offset_transform_enabled = true
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="versionNotes/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1856577394]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Version Notes:"
+horizontal_alignment = 1
+
+[node name="Versions 1" type="Label" parent="versionNotes/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1656363735]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Version 1.0: Splash Screen and Main menu implimented"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="versionNotes/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1246405979]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Scroll Test"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="versionNotes/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1792466622]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Scroll Test"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="versionNotes/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1366279921]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Scroll Test"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="versionNotes/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1281324550]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Scroll Test"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="versionNotes/VBoxContainer" unique_id=137381006]
+custom_maximum_size = Vector2(-1, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=603127321]
+stream = ExtResource("4_wu84c")
+bus = &"Sounds"
+
+[connection signal="pressed" from="buttonsContainer/Button" to="." method="_on_button_pressed_Start"]
+[connection signal="pressed" from="buttonsContainer/Button2" to="." method="_on_button_2_pressed_Version_Notes"]
+[connection signal="pressed" from="buttonsContainer/Button3" to="." method="_on_button_3_pressed_Credits"]
+[connection signal="pressed" from="buttonsContainer/Button4" to="." method="_on_button_4_pressed_Exit"]
+[connection signal="mouse_entered" from="credits/VBoxContainer/Button" to="." method="_on_button_mouse_entered_Back"]
+[connection signal="pressed" from="credits/VBoxContainer/Button" to="." method="_on_button_pressed_Back"]
+[connection signal="mouse_entered" from="versionNotes/VBoxContainer/Button" to="." method="_on_button_mouse_entered_Back"]
+[connection signal="pressed" from="versionNotes/VBoxContainer/Button" to="." method="_on_button_pressed_Back"]
