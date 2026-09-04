@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bwpwduq6jy7oe"]
+
+[ext_resource type="Texture2D" uid="uid://b7yxf8iwhehl4" path="res://assets/Enemy Textures/BasicEnemey Sprite Sheet.png" id="1_3i4hm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md22f"]
+atlas = ExtResource("1_3i4hm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn5nn"]
+atlas = ExtResource("1_3i4hm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuegt"]
+atlas = ExtResource("1_3i4hm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm70f"]
+atlas = ExtResource("1_3i4hm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve544"]
+atlas = ExtResource("1_3i4hm")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhw0p"]
+atlas = ExtResource("1_3i4hm")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n365g"]
+atlas = ExtResource("1_3i4hm")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cij6a"]
+atlas = ExtResource("1_3i4hm")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exjbv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md22f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn5nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuegt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm70f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve544")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhw0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n365g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cij6a")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="BasicEnemy" type="Node2D" unique_id=1538006154]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1350943342]
+sprite_frames = SubResource("SpriteFrames_exjbv")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1025177947]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1831001351]
