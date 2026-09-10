@@ -5,6 +5,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var current_Arms : Arms
+var timeSinceGrounded = 0.0
+var timeSinceSpace = 0.0
 #var current_Legs : Legs
 
 func _ready() -> void:
@@ -15,8 +17,20 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	# Coyote time
+	if is_on_floor():
+		timeSinceGrounded = 0
+	else:
+		timeSinceGrounded += delta
+
+	# Jump buffering
+	if Input.is_action_just_pressed("Jump"):
+		timeSinceSpace = 0.0
+	else:
+		timeSinceSpace += delta
+
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if timeSinceSpace <= 0.2 and timeSinceGrounded <= 0.15:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
