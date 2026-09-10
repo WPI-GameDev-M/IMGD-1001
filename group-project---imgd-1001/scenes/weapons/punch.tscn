@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dfnoteel5ridr"]
+
+[ext_resource type="Script" uid="uid://de4t425sotfe0" path="res://scripts/player/weapons/punch.gd" id="1_gqs3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu2mj"]
+
+[node name="Punch" type="Node2D" unique_id=937096006]
+script = ExtResource("1_gqs3y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1586431342]
+
+[node name="hitbox" type="CollisionShape2D" parent="Area2D" unique_id=2028405898]
+visibility_layer = 2
+position = Vector2(15, -5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xu2mj")
+disabled = true

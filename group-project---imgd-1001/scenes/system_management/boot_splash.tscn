@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://di13qcsprqrgo"]
 
 [ext_resource type="Texture2D" uid="uid://sb5dkhqj770t" path="res://assets/boot-splash/Worcester-Polytechnic-Institute-WPI-Logo-Vector.svg-.png" id="1_ons0g"]
-[ext_resource type="Script" uid="uid://cp8mcvx53f60h" path="res://scripts/boot_splash.gd" id="1_p01vo"]
+[ext_resource type="Script" uid="uid://cp8mcvx53f60h" path="res://scripts/game/boot_splash.gd" id="1_p01vo"]
 
 [sub_resource type="Animation" id="Animation_p01vo"]
 length = 0.001

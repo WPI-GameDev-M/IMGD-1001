@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bwpwduq6jy7oe"]
 
 [ext_resource type="Texture2D" uid="uid://b7yxf8iwhehl4" path="res://assets/Enemy Textures/BasicEnemey Sprite Sheet.png" id="1_3i4hm"]
+[ext_resource type="Script" uid="uid://clgjtxlhodlr8" path="res://scripts/enemies/basic_enemy.gd" id="1_md22f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md22f"]
 atlas = ExtResource("1_3i4hm")
@@ -66,7 +67,11 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
+radius = 8.0
+
 [node name="BasicEnemy" type="Node2D" unique_id=1538006154]
+script = ExtResource("1_md22f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1350943342]
 sprite_frames = SubResource("SpriteFrames_exjbv")
@@ -74,4 +79,8 @@ autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1025177947]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1831001351]
+[node name="hurtbox" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1831001351]
+light_mask = 2
+shape = SubResource("CircleShape2D_dqkch")
+
+[connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

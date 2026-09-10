@@ -3,7 +3,6 @@ extends Control
 @onready var grid_container: GridContainer = $buttonsContainer
 @onready var credits: PanelContainer = $credits
 @onready var version_notes: PanelContainer = $versionNotes
-
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +24,9 @@ func _on_mouse_exited(chosen_button: Button) -> void:
 
 
 func _on_button_pressed_Start() -> void:
-	pass # Replace with function body.
+	var level_one = preload("res://scenes/levels/test_screen.tscn")
+	get_tree().change_scene_to_packed(level_one)
+	
 
 
 func _on_button_2_pressed_Version_Notes() -> void:

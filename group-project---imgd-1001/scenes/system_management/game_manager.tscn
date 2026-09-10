@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b0pgb4grmq54g"]
+
+[ext_resource type="Script" uid="uid://d2e6il6suqtng" path="res://scripts/game/game_manager.gd" id="1_va1il"]
+[ext_resource type="PackedScene" uid="uid://di13qcsprqrgo" path="res://scenes/system_management/boot_splash.tscn" id="2_ihy8i"]
+
+[node name="GameManager" type="Node" unique_id=708939096]
+script = ExtResource("1_va1il")
+
+[node name="splash screen" parent="." unique_id=949779195 instance=ExtResource("2_ihy8i")]
