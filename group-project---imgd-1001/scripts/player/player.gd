@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		timeSinceSpace += delta
 
-	# Handle jump.
+	# Handles jump.
 	if timeSinceSpace <= 0.2 and timeSinceGrounded <= 0.15:
 		velocity.y = JUMP_VELOCITY
 
