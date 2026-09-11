@@ -2,26 +2,20 @@ extends CharacterBody2D
 
 @onready var flip_container: Node2D = $FlipContainer
 
-enum States {
-	Idle,
-	OnGround,
-	InAir,
-	Damaged,
-	Disabled
-}
-
 var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var current_Arms : Arms
-
+<<<<<<< Updated upstream
 var timeSinceGrounded = 0.0
-var timeSinceSpace = 1.0
+var timeSinceSpace = 0.0
 #var current_Legs : Legs
+=======
+var current_Legs : Legs
 
 var DASH_SPEED = 600.0
 var is_dashing = false
 var can_dash = true
-
+>>>>>>> Stashed changes
 
 func _ready() -> void:
 	pass
