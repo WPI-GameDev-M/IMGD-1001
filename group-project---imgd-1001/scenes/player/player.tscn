@@ -150,6 +150,18 @@ _data = {
 z_index = 5
 script = ExtResource("1_lvxji")
 
+[node name="StateManager" type="Node2D" parent="." unique_id=579772748]
+
+[node name="Idle" type="Node2D" parent="StateManager" unique_id=1745290096]
+
+[node name="OnGround" type="Node2D" parent="StateManager" unique_id=133801074]
+
+[node name="InAir" type="Node2D" parent="StateManager" unique_id=1838842454]
+
+[node name="Disabled" type="Node2D" parent="StateManager" unique_id=1024474835]
+
+[node name="Damaged" type="Node2D" parent="StateManager" unique_id=1036828521]
+
 [node name="FlipContainer" type="Node2D" parent="." unique_id=1781903862]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipContainer" unique_id=1799490833]
@@ -158,7 +170,7 @@ sprite_frames = SubResource("SpriteFrames_8378r")
 animation = &"attack"
 autoplay = "idle"
 
-[node name="ArmsManager" type="Node2D" parent="FlipContainer" unique_id=1652636708]
+[node name="ArmsManager" type="Node2D" parent="FlipContainer" unique_id=1501757239]
 script = ExtResource("3_lvxji")
 arms_array = Array[PackedScene]([ExtResource("4_0owmy")])
 
