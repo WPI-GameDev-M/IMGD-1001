@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://w13i6ljepct7" path="res://scripts/player/player.gd" id="1_lvxji"]
 [ext_resource type="Texture2D" uid="uid://cbc7hg20rw1ki" path="res://assets/temp assets/sprites/knight.png" id="2_p47bc"]
-[ext_resource type="Script" uid="uid://bnel8wtc27ta3" path="res://scripts/player/arms_manager.gd" id="3_lvxji"]
-[ext_resource type="PackedScene" uid="uid://dfnoteel5ridr" path="res://scenes/weapons/punch.tscn" id="4_0owmy"]
+[ext_resource type="Script" uid="uid://bnel8wtc27ta3" path="res://scripts/player/arms/arms_manager.gd" id="3_lvxji"]
+[ext_resource type="PackedScene" uid="uid://dfnoteel5ridr" path="res://scenes/player/weapons/punch.tscn" id="4_0owmy"]
+[ext_resource type="Script" uid="uid://0ullarcjrsua" path="res://scripts/player/legs/legs_manager.gd" id="5_p47bc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_p47bc")
@@ -162,6 +163,7 @@ script = ExtResource("3_lvxji")
 arms_array = Array[PackedScene]([ExtResource("4_0owmy")])
 
 [node name="LegsManager" type="Node2D" parent="FlipContainer" unique_id=1965848965]
+script = ExtResource("5_p47bc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=481682394]
 position = Vector2(0, -5)

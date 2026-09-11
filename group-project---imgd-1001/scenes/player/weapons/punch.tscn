@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfnoteel5ridr"]
 
-[ext_resource type="Script" uid="uid://de4t425sotfe0" path="res://scripts/player/weapons/punch.gd" id="1_gqs3y"]
+[ext_resource type="Script" uid="uid://de4t425sotfe0" path="res://scripts/player/arms/punch.gd" id="1_gqs3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu2mj"]
 
