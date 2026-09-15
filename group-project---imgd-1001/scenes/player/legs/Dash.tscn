@@ -11,6 +11,8 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213479674]
+position = Vector2(0, 30)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_s5d5k")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=794276476]

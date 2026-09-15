@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfnoteel5ridr"]
 
 [ext_resource type="Script" uid="uid://de4t425sotfe0" path="res://scripts/player/arms/punch.gd" id="1_gqs3y"]
+[ext_resource type="Texture2D" uid="uid://c6meic0052s75" path="res://assets/Equipment Display Textures/Arm Equipment Display Textures/Arm - Punch Equipment Display.png" id="2_6xi5l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu2mj"]
 
@@ -15,3 +16,8 @@ position = Vector2(15, -5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_xu2mj")
 disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1385993879]
+position = Vector2(0, -30)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_6xi5l")
