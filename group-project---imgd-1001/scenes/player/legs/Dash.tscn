@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bile5efi41rt7"]
 
 [ext_resource type="Script" uid="uid://bfs1fxmm5js0p" path="res://scripts/player/legs/dash.gd" id="1_h658o"]
+[ext_resource type="Texture2D" uid="uid://cmbcsrrygnufe" path="res://assets/Equipment Display Textures/Leg Equipment Display Textures/Leg - Dash Equipment Display.png" id="2_s5d5k"]
 
 [node name="Dash" type="Node2D" unique_id=1742162343]
 script = ExtResource("1_h658o")
@@ -8,5 +9,11 @@ script = ExtResource("1_h658o")
 [node name="Timer" type="Timer" parent="." unique_id=187999406]
 wait_time = 2.0
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=213479674]
+texture = ExtResource("2_s5d5k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=794276476]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
