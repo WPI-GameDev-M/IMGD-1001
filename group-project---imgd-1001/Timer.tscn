@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cgu5t4ywpjbwy"]
+
+[ext_resource type="Script" uid="uid://dxc36y4n3fhih" path="res://control.gd" id="1_7jo7d"]
+
+[node name="Control" type="Control" unique_id=1500697509]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7jo7d")
+
+[node name="Timer" type="Timer" parent="." unique_id=448933467]
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1303801673]
+layout_mode = 0
+offset_right = 738.0
+offset_bottom = 427.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

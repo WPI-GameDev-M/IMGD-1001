@@ -4,6 +4,9 @@ extends CharacterBody2D
 
 var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+
+var health : int = 100
+
 var current_Arms : Arms
 var timeSinceGrounded = 0.0
 var timeSinceSpace = 1.0
@@ -14,11 +17,15 @@ var DASH_SPEED = 600.0
 var is_dashing = false
 var can_dash = true
 
+
 func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	if Input.is_action_just_pressed("test_damage"):
+		take_damage(10)
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -49,5 +56,9 @@ func _physics_process(delta: float) -> void:
 		
 	
 		
-
+	
 	move_and_slide()
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	health = max(health, 0)

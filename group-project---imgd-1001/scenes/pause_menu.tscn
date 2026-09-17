@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://do32qxr7ieb86"]
+
+[ext_resource type="Script" uid="uid://c3b12pctmdssa" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=2111355085]
+script = ExtResource("1_n87rw")
+
+[node name="Panel" type="Panel" parent="." unique_id=560153864]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="." unique_id=1512648694]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PausedLabel" type="Label" parent="Control" unique_id=693873437]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_right = 31.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Control" unique_id=807814393]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -86.5
+offset_right = 77.0
+offset_bottom = 86.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="ResumeButton" type="Button" parent="Control/ButtonContainer" unique_id=945473580]
+layout_mode = 2
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="Control/ButtonContainer" unique_id=194767085]
+layout_mode = 2
+text = "Restart Level"
+
+[node name="QuitButton" type="Button" parent="Control/ButtonContainer" unique_id=246681620]
+layout_mode = 2
+text = "Quit to Main Menu"
+
+[connection signal="pressed" from="Control/ButtonContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/ButtonContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
