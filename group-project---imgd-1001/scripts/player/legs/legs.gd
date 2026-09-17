@@ -1,8 +1,11 @@
 class_name Legs
 extends Node2D
-@export var legs_name: String
 
-func enter_legs(animator: AnimationPlayer, player: CharacterBody2D) -> void:
+@export var legs_name: String
+var legs_manager: LegsManager
+
+
+func enter_legs(animator: AnimationPlayer) -> void:
 	pass
 
 func exit_legs() -> void:
