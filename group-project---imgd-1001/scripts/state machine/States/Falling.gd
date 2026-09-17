@@ -1,6 +1,9 @@
 class_name Falling
 extends State
 
+
+@onready var flip_container: Node2D = $"../../FlipContainer"
+
 var gravity = 980
 var timeSinceSpace: float
 var AIR_SPEED = 300
@@ -14,6 +17,8 @@ func physics_update(delta: float) -> void:
 	
 	var direction = Input.get_axis("Left", "Right")
 	character.velocity.x = direction * AIR_SPEED
+	#if direction == -1 or 1:
+		#flip_container.scale.x = direction
 	
 	character.move_and_slide()
 	
