@@ -5,9 +5,11 @@
 
 [node name="Dash" type="Node2D" unique_id=1742162343]
 script = ExtResource("1_h658o")
+dash_speed = 500.0
+legs_name = "Dash"
 
 [node name="Timer" type="Timer" parent="." unique_id=187999406]
-wait_time = 2.0
+wait_time = 0.15
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213479674]
