@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var flip_container: Node2D = $FlipContainer
+@onready var animated_sprite_top: AnimatedSprite2D = $FlipContainer/AnimatedSpriteTop2D
+@onready var animated_sprite_bottom: AnimatedSprite2D = $FlipContainer/AnimatedSpriteBottom2D
 
 var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -47,7 +49,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	
-		
+	if is_on_floor():
+		if direction == 0:
+			animated_sprite_top.play("idle_top")
+			animated_sprite_bottom.play("idle_bottom")
+		else:
+			animated_sprite_top.play("running_top")
+			animated_sprite_bottom.play("running_bottom")
+	else:
+		animated_sprite_top.play("jumping_top")
+		animated_sprite_bottom.play("jumping_bottom")
 
 	move_and_slide()
