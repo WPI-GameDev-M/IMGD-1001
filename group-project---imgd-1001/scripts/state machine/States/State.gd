@@ -1,9 +1,19 @@
 class_name State
 extends Node
 
-# Ref to state machine
-var state_machine: StateMachine
+signal transitioned(new_state_string: String)
 
+var state_machine: StateMachine
+var parent_state : State
+@onready var player = owner as CharacterBody2D
+
+var direction: float
+
+func _ready() -> void:
+	await owner.ready
+	if get_parent() is State:
+		parent_state = get_parent()
+			
 # Initalization for state
 func enter() -> void:
 	pass

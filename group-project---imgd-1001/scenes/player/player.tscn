@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://dx1nn52n4anub"]
 
+[ext_resource type="Script" uid="uid://bxd7275veuxr0" path="res://scripts/player/player.gd" id="1_je7p5"]
 [ext_resource type="Texture2D" uid="uid://cbc7hg20rw1ki" path="res://assets/temp assets/sprites/knight.png" id="2_p47bc"]
 [ext_resource type="Script" uid="uid://bnel8wtc27ta3" path="res://scripts/player/arms/arms_manager.gd" id="3_lvxji"]
 [ext_resource type="PackedScene" uid="uid://dfnoteel5ridr" path="res://scenes/player/weapons/punch.tscn" id="4_0owmy"]
-[ext_resource type="PackedScene" uid="uid://bile5efi41rt7" path="res://scenes/player/legs/Dash.tscn" id="5_h17s1"]
-[ext_resource type="Script" uid="uid://0ullarcjrsua" path="res://scripts/player/legs/legs_manager.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://d2s060iow2wh6" path="res://scripts/state machine/state_machine.gd" id="6_0owmy"]
 [ext_resource type="Script" uid="uid://cgncod0t7h5q4" path="res://scripts/state machine/States/Idle.gd" id="7_qek5x"]
 [ext_resource type="Script" uid="uid://b41jfef7f6u4m" path="res://scripts/state machine/States/OnGround.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://dn0q7vph64k45" path="res://scripts/state machine/States/Jumping.gd" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://dwdx88qcofoct" path="res://scripts/state machine/States/Falling.gd" id="9_h17s1"]
+[ext_resource type="Script" uid="uid://biwauuqdhuxr" path="res://scripts/state machine/States/Moving.gd" id="10_fm80t"]
+[ext_resource type="Script" uid="uid://dck1wwes2fyel" path="res://scripts/state machine/States/InAir.gd" id="11_gx1jg"]
+[ext_resource type="Script" uid="uid://cnb166udsw7fv" path="res://scripts/state machine/States/GroundSpecialAbility.gd" id="11_ugbui"]
+[ext_resource type="Script" uid="uid://c2hicd48p7v1f" path="res://resources/dash.gd" id="12_fcs02"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro0ne"]
+radius = 4.0
+height = 14.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
 atlas = ExtResource("2_p47bc")
@@ -169,16 +176,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro0ne"]
-radius = 4.0
-height = 14.0
-
 [sub_resource type="Animation" id="Animation_y4r1p"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlipContainer/AnimatedSprite2D:animation")
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -194,7 +197,7 @@ length = 0.16667001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlipContainer/AnimatedSprite2D:animation")
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -238,7 +241,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlipContainer/AnimatedSprite2D:animation")
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -254,7 +257,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlipContainer/AnimatedSprite2D:animation")
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -272,52 +275,70 @@ _data = {
 &"run": SubResource("Animation_iqsei")
 }
 
+[sub_resource type="Resource" id="Resource_i50ov"]
+script = ExtResource("12_fcs02")
+DASH_TIMER = 0.15
+DASH_SPEED = 300.0
+DASH_AIR_SPEED = 300.0
+metadata/_custom_type_script = "uid://c2hicd48p7v1f"
+
 [node name="Player" type="CharacterBody2D" unique_id=158582207]
 z_index = 5
+script = ExtResource("1_je7p5")
+SPEED = 150.0
+JUMP_VELOCITY = -200.0
+AIR_SPEED = 150.0
+health = 100.0
 
-[node name="FlipContainer" type="Node2D" parent="." unique_id=1781903862]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=481682394]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_ro0ne")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipContainer" unique_id=1799490833]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1799490833]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_8378r")
 animation = &"attack"
 autoplay = "idle"
 
+[node name="FlipContainer" type="Node2D" parent="." unique_id=1781903862]
+
 [node name="ArmsManager" type="Node2D" parent="FlipContainer" unique_id=1652636708]
 script = ExtResource("3_lvxji")
 arms_array = Array[PackedScene]([ExtResource("4_0owmy")])
-
-[node name="LegsManager" type="Node2D" parent="FlipContainer" unique_id=1359813764]
-script = ExtResource("5_p47bc")
-legs_array = Array[PackedScene]([ExtResource("5_h17s1")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=481682394]
-position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_ro0ne")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=92865348]
 libraries/ = SubResource("AnimationLibrary_3v2ag")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1106413207 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("6_0owmy")
-initial_state = NodePath("Idle")
+initial_state = NodePath("OnGround/Idle")
 metadata/_custom_type_script = "uid://d2s060iow2wh6"
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=1498391286]
+[node name="OnGround" type="Node" parent="StateMachine" unique_id=501721708]
+script = ExtResource("8_qek5x")
+metadata/_custom_type_script = "uid://d2s060iow2wh6"
+
+[node name="Idle" type="Node" parent="StateMachine/OnGround" unique_id=1498391286]
 script = ExtResource("7_qek5x")
 metadata/_custom_type_script = "uid://cgncod0t7h5q4"
 
-[node name="OnGround" type="Node" parent="StateMachine" unique_id=3661500]
-script = ExtResource("8_qek5x")
-metadata/_custom_type_script = "uid://b41jfef7f6u4m"
+[node name="Moving" type="Node" parent="StateMachine/OnGround" unique_id=448033134]
+script = ExtResource("10_fm80t")
+metadata/_custom_type_script = "uid://biwauuqdhuxr"
 
-[node name="Jumping" type="Node" parent="StateMachine" unique_id=1355110616]
+[node name="GroundSpecialAbility" type="Node" parent="StateMachine/OnGround" unique_id=1516294778]
+script = ExtResource("11_ugbui")
+legs_Ability = SubResource("Resource_i50ov")
+metadata/_custom_type_script = "uid://cnb166udsw7fv"
+
+[node name="InAir" type="Node" parent="StateMachine" unique_id=1936253898]
+script = ExtResource("11_gx1jg")
+metadata/_custom_type_script = "uid://dck1wwes2fyel"
+
+[node name="Jumping" type="Node" parent="StateMachine/InAir" unique_id=1355110616]
 script = ExtResource("9_5gtgg")
 metadata/_custom_type_script = "uid://dn0q7vph64k45"
 
-[node name="Falling" type="Node" parent="StateMachine" unique_id=1232391963]
+[node name="Falling" type="Node" parent="StateMachine/InAir" unique_id=1232391963]
 script = ExtResource("9_h17s1")
 metadata/_custom_type_script = "uid://dwdx88qcofoct"
-
-[connection signal="legs_action" from="FlipContainer/LegsManager" to="StateMachine/Idle" method="_on_legs_manager_legs_action"]
-[connection signal="legs_action" from="FlipContainer/LegsManager" to="StateMachine/OnGround" method="_on_legs_manager_legs_action"]

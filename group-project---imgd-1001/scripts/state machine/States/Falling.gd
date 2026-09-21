@@ -2,32 +2,20 @@ class_name Falling
 extends State
 
 
-@onready var flip_container: Node2D = $"../../FlipContainer"
 
-var gravity = 980
-var timeSinceSpace: float
-var AIR_SPEED = 300
 func enter() -> void:
 	print('Entering Falling')
 
 func physics_update(delta: float) -> void:
-	var character = state_machine.get_parent()
 	
-	character.velocity.y += gravity * delta
+	player.velocity.x = (player.direction * player.AIR_SPEED)
 	
-	var direction = Input.get_axis("Left", "Right")
-	character.velocity.x = direction * AIR_SPEED
-	#if direction == -1 or 1:
-		#flip_container.scale.x = direction
-	
-	character.move_and_slide()
-	
-	if character.is_on_floor():
-		print('On floor')
-		if character.velocity.x == 0:
-			state_machine.change_state('Idle')
+	if player.is_on_floor():
+		if player.velocity.x == 0:
+			transitioned.emit('OnGround/Idle')
 		else:
-			state_machine.change_state('OnGround')
+			transitioned.emit('OnGround/Moving')
+			
 
 func handle_input(event: InputEvent) -> void:
 	pass
