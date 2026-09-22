@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dx1nn52n4anub"]
 
 [ext_resource type="Script" uid="uid://bxd7275veuxr0" path="res://scripts/player/player.gd" id="1_je7p5"]
-[ext_resource type="Texture2D" uid="uid://b4exjpc6km5ww" path="res://assets/sprites/player character sprite sheet2.png" id="2_gx1jg"]
+[ext_resource type="Texture2D" uid="uid://b4exjpc6km5ww" path="res://assets/sprites/lower body player character sprite sheet2.png" id="2_gx1jg"]
 [ext_resource type="Script" uid="uid://bnel8wtc27ta3" path="res://scripts/player/arms/arms_manager.gd" id="3_lvxji"]
 [ext_resource type="PackedScene" uid="uid://dfnoteel5ridr" path="res://scenes/player/weapons/punch.tscn" id="4_0owmy"]
 [ext_resource type="Script" uid="uid://d2s060iow2wh6" path="res://scripts/state machine/state_machine.gd" id="6_0owmy"]
