@@ -55,7 +55,7 @@ func _on_button_pressed_Back() -> void:
 func _on_button_mouse_entered_Back() -> void:
 	audio_stream_player_2d.play()
 
-# Click spacebar to start game
+# Click spacebar to start game and skip main menu
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Jump"):
 		var level_one = preload("res://scenes/levels/test_screen.tscn")
