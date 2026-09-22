@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dfnoteel5ridr"]
 
 [ext_resource type="Script" uid="uid://de4t425sotfe0" path="res://scripts/player/arms/punch.gd" id="1_gqs3y"]
-[ext_resource type="Texture2D" uid="uid://c6meic0052s75" path="res://assets/Equipment Display Textures/Arm Equipment Display Textures/Arm - Punch Equipment Display.png" id="2_6xi5l"]
 [ext_resource type="Shader" uid="uid://c3cx7q6e5nj8g" path="res://new_shader.gdshader" id="2_cos3w"]
+[ext_resource type="Texture2D" uid="uid://b3qmhxu33wike" path="res://assets/Equipment Display Textures/Arm Equipment Display Textures/Arm - Punch Equipment Display2.png" id="3_08gdh"]
+[ext_resource type="Texture2D" uid="uid://bnc0ag2xu8sms" path="res://assets/sprites/character upper body model.png" id="4_08gdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu2mj"]
 
@@ -23,6 +24,11 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1385993879]
 material = SubResource("ShaderMaterial_gx1jg")
-position = Vector2(0, -30)
+position = Vector2(0, -58.000004)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_6xi5l")
+texture = ExtResource("3_08gdh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=914819347]
+position = Vector2(0, -25)
+scale = Vector2(0.64140624, 0.64140624)
+texture = ExtResource("4_08gdh")
