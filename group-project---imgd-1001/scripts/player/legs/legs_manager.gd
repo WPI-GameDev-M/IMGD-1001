@@ -1,10 +1,12 @@
+class_name LegsManager
 extends Node2D
 
-signal legs_changed(new_arms: Arms)
+signal legs_changed(new_arms: Legs)
+signal legs_action(current_Action_State: bool)
+
 
 @export var legs_array : Array[PackedScene]
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
-@onready var player: CharacterBody2D = $"../.."
 
 
 
@@ -15,8 +17,9 @@ var current_index : int = 0
 # when we pick another set up, then swap between the two
 
 func _ready() -> void:
+	
 	if legs_array.size() > 0:
-		equip_arms(0)
+		equip_legs(0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	#if event.is_action_pressed("next_arms"):
@@ -26,7 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Legs"):
 		current_legs.use()
 		
-func equip_arms(index: int) -> void:
+func equip_legs(index: int) -> void:
 	if index < 0 or index >= legs_array.size():
 		return
 	
@@ -41,10 +44,15 @@ func equip_arms(index: int) -> void:
 	
 	if current_legs:
 		add_child(current_legs)
-		current_legs.enter_legs(animation_player, player)
+		current_legs.enter_legs(animation_player)
 		emit_signal("legs_changed")
 	
 	
 func cycle_legs(direction: int) -> void:
 	pass
+	
+func _legs_action_signal(legs_state: bool) -> void:
+	legs_action.emit(legs_state)
+	
+	
 	

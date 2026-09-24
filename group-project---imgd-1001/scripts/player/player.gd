@@ -1,23 +1,33 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var flip_container: Node2D = $FlipContainer
 @onready var animated_sprite_top: AnimatedSprite2D = $FlipContainer/AnimatedSpriteTop2D
 @onready var animated_sprite_bottom: AnimatedSprite2D = $FlipContainer/AnimatedSpriteBottom2D
 
-var SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-var current_Arms : Arms
+
+@export var SPEED : float
+@export var JUMP_VELOCITY: float
+@export var AIR_SPEED: float
+var standard_AIR_SPEED: float
+
+@export var health : float
+
+var direction : float
+var facing_direction: float = 1.0
 var timeSinceGrounded = 0.0
 var timeSinceSpace = 1.0
-#var current_Legs : Legs
-var current_Legs : Legs
+var gravity = 980
 
-var DASH_SPEED = 600.0
-var is_dashing = false
-var can_dash = true
+@onready var state_machine: StateMachine = $StateMachine
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 
 func _ready() -> void:
-	pass
+	state_machine.player = self
+	standard_AIR_SPEED = AIR_SPEED
+	
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -60,4 +70,6 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_top.play("jumping_top")
 		animated_sprite_bottom.play("jumping_bottom")
 
-	move_and_slide()
+	match facing_direction:
+		-1 : sprite.flip_h = true
+		1: sprite.flip_h = false

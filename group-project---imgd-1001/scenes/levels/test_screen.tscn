@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ilrde8274eqt" path="res://assets/temp assets/sprites/world_tileset.png" id="1_k6anp"]
 [ext_resource type="PackedScene" uid="uid://dx1nn52n4anub" path="res://scenes/player/player.tscn" id="2_lxj1k"]
+[ext_resource type="PackedScene" uid="uid://crmgqy6coe4kn" path="res://scenes/hud.tscn" id="3_aobdc"]
 [ext_resource type="Script" uid="uid://5ae0wqesejb8" path="res://scripts/world/Killzone.gd" id="3_lxj1k"]
 [ext_resource type="PackedScene" uid="uid://bwpwduq6jy7oe" path="res://scenes/enemies/basic_enemy.tscn" id="4_h5ue7"]
 [ext_resource type="PackedScene" uid="uid://e0oi63ivum2e" path="res://scenes/item_pickup.tscn" id="5_6fhnm"]
@@ -319,14 +320,16 @@ distance = -66.0
 
 [node name="TestScreen" type="Node2D" unique_id=1658438729]
 
-[node name="background" type="TileMapLayer" parent="." unique_id=2015776368]
+[node name="Terrain" type="Node2D" parent="." unique_id=1406370044]
 
-[node name="foreground" type="TileMapLayer" parent="." unique_id=139485053]
-tile_map_data = PackedByteArray("AAAgABMAAQAHAAAAAAAhABMAAQAHAAAAAAAiABMAAQAHAAAAAAAjABMAAQAHAAAAAAAkABMAAQAHAAAAAAAlABMAAQAHAAAAAAAmABMAAQAHAAAAAAAnABMAAQAHAAAAAAAoABMAAQAIAAAAAAAfABMAAQAGAAAAAAAfABQAAQAGAAIAAAAgABQAAQAHAAIAAAAhABQAAQAHAAIAAAAiABQAAQAHAAIAAAAjABQAAQAHAAIAAAAkABQAAQAHAAIAAAAlABQAAQAHAAIAAAAmABQAAQAHAAIAAAAnABQAAQAHAAIAAAAoABQAAQAIAAIAAAArABIAAQAGAAAAAAAsABEAAQAGAAAAAAAtABEAAQAHAAAAAAAuABEAAQAIAAAAAAAvABIAAQAIAAAAAAASABMAAQAGAAAAAAATABQAAQAJAAEAAAAUABQAAQAHAAAAAAAVABQAAQAHAAAAAAAWABQAAQAHAAAAAAAXABQAAQAHAAAAAAAYABQAAQAHAAAAAAAZABQAAQAHAAAAAAAaABQAAQAKAAEAAAAbABMAAQAIAAAAAAASABQAAQAGAAIAAAATABUAAQAGAAIAAAArABMAAQAGAAIAAAAuABMAAQAGAAIAAAATABMAAQAIAAAAAAAUABUAAQAHAAIAAAAVABUAAQAHAAIAAAAWABUAAQAHAAIAAAAXABUAAQAHAAIAAAAYABUAAQAHAAIAAAAZABUAAQAHAAIAAAAaABUAAQAIAAIAAAAbABQAAQAIAAIAAAAaABMAAQAGAAAAAAAvABMAAQAIAAIAAAAsABMAAQAIAAIAAAAtABIAAQAHAAIAAAAuABIAAQAJAAEAAAAsABIAAQAKAAEAAAA=")
+[node name="foreground" type="TileMapLayer" parent="Terrain" unique_id=139485053]
+tile_map_data = PackedByteArray("AAAWABUAAQAGAAAAAAAXABUAAQAHAAAAAAAYABUAAQAHAAAAAAAZABUAAQAIAAAAAAAfABUAAQAGAAAAAAAgABUAAQAHAAAAAAAhABUAAQAHAAAAAAAiABUAAQAHAAAAAAAjABUAAQAHAAAAAAAkABUAAQAHAAAAAAAlABUAAQAHAAAAAAAmABUAAQAHAAAAAAAnABUAAQAHAAAAAAAoABUAAQAHAAAAAAApABUAAQAIAAAAAAAuABUAAQAHAAAAAAAvABUAAQAHAAAAAAAwABUAAQAHAAAAAAAxABUAAQAHAAAAAAAyABUAAQAHAAAAAAAzABUAAQAHAAAAAAA0ABUAAQAHAAAAAAAVABUAAQAHAAAAAAAUABUAAQAHAAAAAAATABUAAQAHAAAAAAASABUAAQAGAAAAAAAtABUAAQAGAAAAAAA1ABUAAQAIAAAAAAARABQAAQAIAAAAAFARABMAAQAHAAAAAFARABIAAQAHAAAAAFARABEAAQAHAAAAAFARABAAAQAHAAAAAFARAA8AAQAHAAAAAFARAA4AAQAHAAAAAFARAA0AAQAHAAAAAFARAAwAAQAHAAAAAFARAAsAAQAHAAAAAFARAAoAAQAHAAAAAFARAAkAAQAHAAAAAFARAAgAAQAGAAAAAFA2ABQAAQAGAAAAAGA2ABMAAQAHAAAAAGA2ABIAAQAHAAAAAGA2ABEAAQAHAAAAAGA2ABAAAQAHAAAAAGA2AA8AAQAHAAAAAGA2AA4AAQAHAAAAAGA2AA0AAQAHAAAAAGA2AAwAAQAHAAAAAGA2AAsAAQAHAAAAAGA2AAoAAQAHAAAAAGA2AAkAAQAHAAAAAGA2AAgAAQAIAAAAAGAqABUAAQAHAAAAAAArABUAAQAHAAAAAAAsABUAAQAHAAAAAAAeABUAAQAHAAAAAAAdABUAAQAHAAAAAAAcABUAAQAHAAAAAAAbABUAAQAHAAAAAAAaABUAAQAHAAAAAAA=")
 tile_set = SubResource("TileSet_xu2mj")
 
+[node name="background" type="TileMapLayer" parent="Terrain" unique_id=2015776368]
+
 [node name="Player" parent="." unique_id=158582207 instance=ExtResource("2_lxj1k")]
-position = Vector2(578, 301)
+position = Vector2(580, 332)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1863283737]
 zoom = Vector2(2.5, 2.5)
@@ -334,17 +337,47 @@ limit_bottom = 400
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
 
+[node name="Hud" type="Control" parent="Player/Camera2D" unique_id=1882788353]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HUD" parent="Player/Camera2D/Hud" unique_id=1436335453 instance=ExtResource("3_aobdc")]
+
+[node name="Labels" type="Node" parent="." unique_id=1332510563]
+
+[node name="Label" type="Label" parent="Labels" unique_id=183926118]
+offset_left = 458.0
+offset_top = 166.0
+offset_right = 702.0
+offset_bottom = 267.0
+text = "Press Sprint to Dash!
+
+Go up to an enemy and press Z 
+to attack!"
+
+[node name="Enemies" type="Node" parent="." unique_id=1102769652]
+
+[node name="BasicEnemy" parent="Enemies" unique_id=1538006154 instance=ExtResource("4_h5ue7")]
+position = Vector2(516, 328)
+
+[node name="BasicEnemy2" parent="Enemies" unique_id=1366649207 instance=ExtResource("4_h5ue7")]
+position = Vector2(367, 328)
+
+[node name="Pickups" type="Node" parent="." unique_id=1792525494]
+
+[node name="ItemPickup" parent="Pickups" unique_id=494250106 instance=ExtResource("5_6fhnm")]
+position = Vector2(631, 323)
+
+[node name="ItemPickup2" parent="Pickups" unique_id=284209000 instance=ExtResource("5_6fhnm")]
+position = Vector2(778, 323)
+
 [node name="Killzone" type="Area2D" parent="." unique_id=1811899779]
 position = Vector2(580, 380)
 script = ExtResource("3_lxj1k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1854669719]
 shape = SubResource("WorldBoundaryShape2D_xu2mj")
-
-[node name="BasicEnemy" parent="." unique_id=1538006154 instance=ExtResource("4_h5ue7")]
-position = Vector2(517, 296)
-
-[node name="ItemPickup" parent="." unique_id=494250106 instance=ExtResource("5_6fhnm")]
-position = Vector2(607, 297)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

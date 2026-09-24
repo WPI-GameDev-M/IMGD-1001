@@ -1,3 +1,4 @@
+class_name ArmsManager
 extends Node2D
 
 signal arms_changed(new_arms: Arms)

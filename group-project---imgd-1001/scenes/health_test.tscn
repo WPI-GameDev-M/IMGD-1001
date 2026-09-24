@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://brqyu57mdj3e8"]
+
+[ext_resource type="PackedScene" uid="uid://dx1nn52n4anub" path="res://scenes/player/player.tscn" id="1_5ql6f"]
+[ext_resource type="PackedScene" uid="uid://crmgqy6coe4kn" path="res://scenes/hud.tscn" id="2_b4gn4"]
+
+[node name="HealthTest" type="Node2D" unique_id=1919875798]
+
+[node name="Player" parent="." unique_id=158582207 instance=ExtResource("1_5ql6f")]
+
+[node name="HUD" parent="." unique_id=1436335453 instance=ExtResource("2_b4gn4")]

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://crmgqy6coe4kn"]
+
+[ext_resource type="Script" uid="uid://bfhcro7ulhsg2" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1436335453]
+script = ExtResource("1_ahhtf")
+
+[node name="Control" type="Control" parent="." unique_id=161471331]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="Control" unique_id=229994463]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1148.0
+offset_bottom = 641.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "10:00"
+metadata/_edit_use_anchors_ = true
+
+[node name="CountdownTimer" type="Timer" parent="Control" unique_id=1398249568]
+autostart = true
+
+[node name="HealthBar" type="ProgressBar" parent="Control" unique_id=1114004530]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 117.0
+offset_bottom = 86.0
+value = 100.0
+
+[connection signal="timeout" from="Control/CountdownTimer" to="." method="_on_countdown_timer_timeout"]
