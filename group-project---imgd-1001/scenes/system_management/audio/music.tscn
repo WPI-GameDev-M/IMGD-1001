@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dj0kgwolf2rwu"]
 
-[ext_resource type="AudioStream" uid="uid://dk6ec41qnacr7" path="res://assets/audio/music/synth_type_mix-low-pridox.ogg" id="1_05ggv"]
+[ext_resource type="AudioStream" uid="uid://ct7q8cjxe4e50" path="res://assets/audio/music/MMXTitle.mp3" id="1_lyake"]
 
 [node name="Music" type="AudioStreamPlayer2D" unique_id=1260729381]
-stream = ExtResource("1_05ggv")
+stream = ExtResource("1_lyake")
 autoplay = true
 parameters/looping = true

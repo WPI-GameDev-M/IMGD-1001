@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bxd7275veuxr0" path="res://scripts/player/player.gd" id="1_je7p5"]
 [ext_resource type="Texture2D" uid="uid://b4exjpc6km5ww" path="res://assets/sprites/lower body player character sprite sheet2.png" id="2_gx1jg"]
-[ext_resource type="Script" uid="uid://bnel8wtc27ta3" path="res://scripts/player/arms/arms_manager.gd" id="3_lvxji"]
-[ext_resource type="PackedScene" uid="uid://dfnoteel5ridr" path="res://scenes/player/weapons/punch.tscn" id="4_0owmy"]
-[ext_resource type="Script" uid="uid://d2s060iow2wh6" path="res://scripts/state machine/state_machine.gd" id="6_0owmy"]
-[ext_resource type="Script" uid="uid://cgncod0t7h5q4" path="res://scripts/state machine/States/Idle.gd" id="7_qek5x"]
+[ext_resource type="Script" uid="uid://cq3jjwx4nxtuk" path="res://scripts/state machine/arms_state_machine.gd" id="3_kvlxm"]
+[ext_resource type="PackedScene" uid="uid://dfnoteel5ridr" path="res://scenes/player/weapons/punch.tscn" id="4_uf5tr"]
+[ext_resource type="Script" uid="uid://beon6adx7j3hh" path="res://scripts/state machine/States/ArmsIdle.gd" id="5_uf5tr"]
+[ext_resource type="Script" uid="uid://dljcc7d3jlduk" path="res://scripts/state machine/States/Attack.gd" id="5_ugbui"]
+[ext_resource type="Script" uid="uid://bdveeoiy1oubh" path="res://scripts/state machine/movement_state_machine.gd" id="6_fcs02"]
+[ext_resource type="Script" uid="uid://bi16gpfd5und" path="res://scripts/state machine/States/Melee.gd" id="6_uf5tr"]
+[ext_resource type="Script" uid="uid://sbsttx1goln6" path="res://scripts/state machine/States/Ranged.gd" id="7_lgqa7"]
+[ext_resource type="Script" uid="uid://cgncod0t7h5q4" path="res://scripts/state machine/States/LegsIdle.gd" id="7_qek5x"]
 [ext_resource type="Script" uid="uid://b41jfef7f6u4m" path="res://scripts/state machine/States/OnGround.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://dn0q7vph64k45" path="res://scripts/state machine/States/Jumping.gd" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://dwdx88qcofoct" path="res://scripts/state machine/States/Falling.gd" id="9_h17s1"]
@@ -13,6 +17,7 @@
 [ext_resource type="Script" uid="uid://dck1wwes2fyel" path="res://scripts/state machine/States/InAir.gd" id="11_gx1jg"]
 [ext_resource type="Script" uid="uid://cnb166udsw7fv" path="res://scripts/state machine/States/GroundSpecialAbility.gd" id="11_ugbui"]
 [ext_resource type="Script" uid="uid://c2hicd48p7v1f" path="res://resources/dash.gd" id="12_fcs02"]
+[ext_resource type="Script" uid="uid://3s8c7em2cjdu" path="res://scripts/state machine/States/AirSpecialAbility.gd" id="14_ugbui"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro0ne"]
 radius = 4.0
@@ -112,34 +117,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"attack", &"idle"]
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FlipContainer/ArmsManager")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"activate_current_arms_hitbox"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FlipContainer/ArmsManager")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.13333334),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"deactivate_current_weapon_hitbox"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_uniwh"]
 resource_name = "idle"
@@ -181,11 +158,12 @@ _data = {
 &"run": SubResource("Animation_iqsei")
 }
 
-[sub_resource type="Resource" id="Resource_i50ov"]
+[sub_resource type="Resource" id="Resource_tikdu"]
 script = ExtResource("12_fcs02")
-DASH_TIMER = 0.15
-DASH_SPEED = 300.0
-DASH_AIR_SPEED = 300.0
+DASH_TIMER = 0.25
+DASH_SPEED = 500.0
+DASH_AIR_SPEED = 500.0
+ability_type = 1
 metadata/_custom_type_script = "uid://c2hicd48p7v1f"
 
 [node name="Player" type="CharacterBody2D" unique_id=158582207]
@@ -206,45 +184,67 @@ sprite_frames = SubResource("SpriteFrames_su6ut")
 animation = &"attack"
 autoplay = "default"
 
-[node name="FlipContainer" type="Node2D" parent="." unique_id=1781903862]
-
-[node name="ArmsManager" type="Node2D" parent="FlipContainer" unique_id=1652636708]
-script = ExtResource("3_lvxji")
-arms_array = Array[PackedScene]([ExtResource("4_0owmy")])
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=92865348]
 libraries/ = SubResource("AnimationLibrary_3v2ag")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1106413207 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("6_0owmy")
-initial_state = NodePath("OnGround/Idle")
-metadata/_custom_type_script = "uid://d2s060iow2wh6"
+[node name="ArmsManager" type="Node2D" parent="." unique_id=968892215]
 
-[node name="OnGround" type="Node" parent="StateMachine" unique_id=501721708]
+[node name="ArmsStateMachine" type="Node" parent="." unique_id=1606389678 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_kvlxm")
+initial_arms = ExtResource("4_uf5tr")
+initial_state = NodePath("ArmsIdle")
+metadata/_custom_type_script = "uid://cq3jjwx4nxtuk"
+
+[node name="ArmsIdle" type="Node" parent="ArmsStateMachine" unique_id=845875911]
+script = ExtResource("5_uf5tr")
+metadata/_custom_type_script = "uid://beon6adx7j3hh"
+
+[node name="Attack" type="Node" parent="ArmsStateMachine" unique_id=1016756321]
+script = ExtResource("5_ugbui")
+metadata/_custom_type_script = "uid://dljcc7d3jlduk"
+
+[node name="Melee" type="Node" parent="ArmsStateMachine/Attack" unique_id=1626721766]
+script = ExtResource("6_uf5tr")
+metadata/_custom_type_script = "uid://bi16gpfd5und"
+
+[node name="Ranged" type="Node" parent="ArmsStateMachine/Attack" unique_id=1932468237]
+script = ExtResource("7_lgqa7")
+metadata/_custom_type_script = "uid://sbsttx1goln6"
+
+[node name="MovementStateMachine" type="Node" parent="." unique_id=1540337252 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_fcs02")
+initial_state = NodePath("OnGround/LegsIdle")
+metadata/_custom_type_script = "uid://bdveeoiy1oubh"
+
+[node name="OnGround" type="Node" parent="MovementStateMachine" unique_id=501721708]
 script = ExtResource("8_qek5x")
 metadata/_custom_type_script = "uid://d2s060iow2wh6"
 
-[node name="Idle" type="Node" parent="StateMachine/OnGround" unique_id=1498391286]
+[node name="LegsIdle" type="Node" parent="MovementStateMachine/OnGround" unique_id=1498391286]
 script = ExtResource("7_qek5x")
 metadata/_custom_type_script = "uid://cgncod0t7h5q4"
 
-[node name="Moving" type="Node" parent="StateMachine/OnGround" unique_id=448033134]
+[node name="Moving" type="Node" parent="MovementStateMachine/OnGround" unique_id=448033134]
 script = ExtResource("10_fm80t")
 metadata/_custom_type_script = "uid://biwauuqdhuxr"
 
-[node name="GroundSpecialAbility" type="Node" parent="StateMachine/OnGround" unique_id=1516294778]
+[node name="GroundSpecialAbility" type="Node" parent="MovementStateMachine/OnGround" unique_id=1516294778]
 script = ExtResource("11_ugbui")
-legs_Ability = SubResource("Resource_i50ov")
+legs_Ability = SubResource("Resource_tikdu")
 metadata/_custom_type_script = "uid://cnb166udsw7fv"
 
-[node name="InAir" type="Node" parent="StateMachine" unique_id=1936253898]
+[node name="InAir" type="Node" parent="MovementStateMachine" unique_id=1936253898]
 script = ExtResource("11_gx1jg")
 metadata/_custom_type_script = "uid://dck1wwes2fyel"
 
-[node name="Jumping" type="Node" parent="StateMachine/InAir" unique_id=1355110616]
+[node name="Jumping" type="Node" parent="MovementStateMachine/InAir" unique_id=1355110616]
 script = ExtResource("9_5gtgg")
 metadata/_custom_type_script = "uid://dn0q7vph64k45"
 
-[node name="Falling" type="Node" parent="StateMachine/InAir" unique_id=1232391963]
+[node name="Falling" type="Node" parent="MovementStateMachine/InAir" unique_id=1232391963]
 script = ExtResource("9_h17s1")
 metadata/_custom_type_script = "uid://dwdx88qcofoct"
+
+[node name="AirSpecialAbility" type="Node" parent="MovementStateMachine/InAir" unique_id=235789702]
+script = ExtResource("14_ugbui")
+metadata/_custom_type_script = "uid://3s8c7em2cjdu"

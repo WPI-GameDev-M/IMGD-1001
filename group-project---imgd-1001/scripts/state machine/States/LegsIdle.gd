@@ -1,8 +1,8 @@
-class_name Idle
+class_name LegsIdle
 extends State
 
 func enter() -> void:
-	print("Entering Idle State")
+	pass
 	
 	
 func physics_update(delta: float) -> void:

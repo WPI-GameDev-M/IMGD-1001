@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://cnbh4hh2v0w34"]
 
+[ext_resource type="Script" uid="uid://gwml6rd5hqpd" path="res://scripts/player/arms/blaster.gd" id="1_lxesv"]
+[ext_resource type="PackedScene" uid="uid://dr277sbwnyhwj" path="res://scenes/player/weapons/projectiles/blast.tscn" id="2_qy5dt"]
+
 [node name="Blaster" type="Node2D" unique_id=1519403729]
+script = ExtResource("1_lxesv")
+projectile = ExtResource("2_qy5dt")
+arms_type = 1
+arms_name = "Blaster"
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=695258988]
+position = Vector2(29, -12)

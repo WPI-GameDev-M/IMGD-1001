@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DoubleJump" format=3 uid="uid://dg5psr4ya5po7"]
+
+[ext_resource type="Script" uid="uid://b04oehinvuvjw" path="res://resources/double_jump.gd" id="1_3rn0w"]
+
+[resource]
+script = ExtResource("1_3rn0w")
+metadata/_custom_type_script = "uid://b04oehinvuvjw"

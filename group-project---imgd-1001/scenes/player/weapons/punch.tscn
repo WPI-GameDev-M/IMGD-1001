@@ -12,6 +12,7 @@ shader = ExtResource("2_cos3w")
 
 [node name="Punch" type="Node2D" unique_id=937096006]
 script = ExtResource("1_gqs3y")
+arms_name = "Punch"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1586431342]
 

@@ -1,54 +1,55 @@
 [gd_scene format=3 uid="uid://e0oi63ivum2e"]
 
-[ext_resource type="Script" uid="uid://b73ipmdwvascq" path="res://scripts/item_pickup.gd" id="1_ma44n"]
-[ext_resource type="Texture2D" uid="uid://dt82bfct80poj" path="res://assets/temp assets/sprites/coin.png" id="2_yiukj"]
+[ext_resource type="Script" uid="uid://b73ipmdwvascq" path="res://scripts/item_pickup.gd" id="1_axyj1"]
+[ext_resource type="Texture2D" uid="uid://dt82bfct80poj" path="res://assets/temp assets/sprites/coin.png" id="2_8mquc"]
+[ext_resource type="PackedScene" uid="uid://cnbh4hh2v0w34" path="res://scenes/player/weapons/Blaster.tscn" id="2_p6afu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_72sof"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8ccl"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2q6m"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wicdv"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7tsa"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2m4yq"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcy0d"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ocgu7"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qc3w8"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cbgv"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlkld"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(160, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8pl02"]
-atlas = ExtResource("2_yiukj")
+atlas = ExtResource("2_8mquc")
 region = Rect2(176, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xu2mj"]
@@ -98,8 +99,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_xu2mj"]
 radius = 6.0827627
 
-[node name="ItemPickup" type="Area2D" unique_id=494250106]
-script = ExtResource("1_ma44n")
+[node name="ArmsPickup" type="Area2D" unique_id=494250106]
+script = ExtResource("1_axyj1")
+stored_arm = ExtResource("2_p6afu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1021255397]
 sprite_frames = SubResource("SpriteFrames_xu2mj")

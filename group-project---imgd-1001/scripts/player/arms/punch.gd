@@ -7,8 +7,7 @@ func enter_arms(animator: AnimationPlayer) -> void:
 	player_animator = animator
 
 func use() -> void:
-	if player_animator and not player_animator.is_playing():
-		player_animator.play("attack")
+	pass
 	
 func enable_hitbox() -> void:
 	hitbox.disabled = false

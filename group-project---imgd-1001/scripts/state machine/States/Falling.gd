@@ -12,7 +12,7 @@ func physics_update(delta: float) -> void:
 	
 	if player.is_on_floor():
 		if player.velocity.x == 0:
-			transitioned.emit('OnGround/Idle')
+			transitioned.emit('OnGround/LegsIdle')
 		else:
 			transitioned.emit('OnGround/Moving')
 			
