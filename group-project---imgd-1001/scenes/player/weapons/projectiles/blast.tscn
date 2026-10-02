@@ -1,14 +1,22 @@
 [gd_scene format=3 uid="uid://dr277sbwnyhwj"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xu2mj"]
+[ext_resource type="Script" uid="uid://dho6v7qs2rnan" path="res://scripts/player/arms/blast.gd" id="1_8oom7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m7j3y"]
+size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu2mj"]
 size = Vector2(1, 1)
 
 [node name="Blast" type="Area2D" unique_id=939367285]
+script = ExtResource("1_8oom7")
+bullet_Speed = 900.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=340996242]
-texture = SubResource("PlaceholderTexture2D_xu2mj")
+scale = Vector2(0.25, 0.25)
+texture = SubResource("PlaceholderTexture2D_m7j3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=292140930]
 shape = SubResource("RectangleShape2D_xu2mj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

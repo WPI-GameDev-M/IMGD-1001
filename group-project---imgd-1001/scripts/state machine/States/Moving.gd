@@ -4,18 +4,20 @@ extends State
 
 
 func enter() -> void:
-	print("Walking")
+	pass
 
 
 func physics_update(delta: float) -> void:
 	
+	player.arms_state_machine.arms_direction_update()
+	
 	if player.direction == 0:
-			transitioned.emit('OnGround/Idle')
+			transitioned.emit('OnGround/LegsIdle')
 		
 	player.velocity.x = (player.direction * player.SPEED)
 		
 	if player.is_on_floor():
-		player.timeSinceGrounded = 0.0
+		player.timeSinceGrounded = 0.0 
 	else:
 		player.timeSinceGrounded += delta
 				

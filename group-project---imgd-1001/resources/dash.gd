@@ -24,7 +24,7 @@ func on_physics_update(player: Player, delta) -> String:
 	
 	if dashCountDown <= 0 && player.is_on_floor():
 		player.velocity.x = 0
-		return "Idle"
+		return "LegsIdle"
 	else:
 		return ""
 func on_exit(player: Player) -> void:

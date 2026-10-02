@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://tqwm0p6ypgog"]
+
+[ext_resource type="Script" uid="uid://b7qu4hgn7d4lo" path="res://scenes/legs_pickup.gd" id="1_bo885"]
+[ext_resource type="Texture2D" uid="uid://bj3by1t8fh5j2" path="res://assets/temp assets/sprites/fruit.png" id="2_bo885"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljydt"]
+atlas = ExtResource("2_bo885")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xu2mj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljydt")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xu2mj"]
+radius = 6.0827627
+
+[node name="ItemPickup" type="Area2D" unique_id=494250106]
+script = ExtResource("1_bo885")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1021255397]
+sprite_frames = SubResource("SpriteFrames_xu2mj")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573511148]
+shape = SubResource("CircleShape2D_xu2mj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

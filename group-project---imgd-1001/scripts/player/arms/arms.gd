@@ -1,5 +1,9 @@
 class_name Arms
-extends Node
+extends Node2D
+
+enum Type {MELEE, RANGED}
+
+@export var arms_type: Type
 @export var arms_name: String
 
 func enter_arms(animator: AnimationPlayer) -> void:

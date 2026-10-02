@@ -10,9 +10,10 @@ func physics_update(delta: float) -> void:
 	#match player.facing_direction:
 		#-1 : player.sprite.flip_h = true
 		#1: player.sprite.flip_h = false
-		
-	print(player.sprite.flip_h)
-	print(player.AIR_SPEED)
+	
+	if Input.is_action_just_pressed('Legs'):
+		transitioned.emit('InAir/AirSpecialAbility')
+	
 	player.velocity.y += (player.gravity * delta)
 	
 	player.move_and_slide()

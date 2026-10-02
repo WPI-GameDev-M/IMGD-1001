@@ -1,6 +1,9 @@
 class_name AbilityResource
 extends Resource
 
+enum Type {AIR, GROUND}
+
+@export var ability_type: Type
 var player = Player
 
 func on_enter(player_ref: Player) ->void:

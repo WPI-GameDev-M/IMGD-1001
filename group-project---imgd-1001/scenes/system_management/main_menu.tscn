@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bmeu4abdrha3a" path="res://assets/sprites/UI/TemporaryName.png" id="1_bqqt6"]
 [ext_resource type="Script" uid="uid://cl2gaxqoynqhe" path="res://scripts/game/main_menu.gd" id="1_wu84c"]
 [ext_resource type="Texture2D" uid="uid://b44iuat7yb42f" path="res://assets/sprites/UI/button.png" id="3_8ln24"]
-[ext_resource type="AudioStream" uid="uid://bjy1648nntqw2" path="res://assets/audio/sounds/button_pop.mp3" id="4_wu84c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
 font_size = 23
@@ -214,6 +213,10 @@ text = "- Tristan
 "
 horizontal_alignment = 1
 
+[node name="Label5" type="Label" parent="credits/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=829655433]
+layout_mode = 2
+text = "- Music by Noah G."
+
 [node name="Button" type="Button" parent="credits/VBoxContainer" unique_id=1702069057]
 custom_maximum_size = Vector2(-1, 50)
 layout_mode = 2
@@ -311,7 +314,6 @@ theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=603127321]
-stream = ExtResource("4_wu84c")
 bus = &"Sounds"
 
 [connection signal="pressed" from="buttonsContainer/Button" to="." method="_on_button_pressed_Start"]
