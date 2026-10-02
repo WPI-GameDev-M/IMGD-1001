@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ilrde8274eqt" path="res://assets/temp assets/sprites/world_tileset.png" id="1_k6anp"]
 [ext_resource type="PackedScene" uid="uid://dx1nn52n4anub" path="res://scenes/player/player.tscn" id="2_lxj1k"]
+[ext_resource type="Texture2D" uid="uid://cx36yx1qxh4me" path="res://assets/SpaceTileSet2-1.png.png" id="2_yc580"]
 [ext_resource type="PackedScene" uid="uid://crmgqy6coe4kn" path="res://scenes/hud.tscn" id="3_aobdc"]
 [ext_resource type="Script" uid="uid://5ae0wqesejb8" path="res://scripts/world/Killzone.gd" id="3_lxj1k"]
 [ext_resource type="PackedScene" uid="uid://bwpwduq6jy7oe" path="res://scenes/enemies/basic_enemy.tscn" id="4_h5ue7"]
@@ -317,6 +318,33 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_h5ue7")
 sources/1 = SubResource("TileSetAtlasSource_aobdc")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hehef"]
+texture = ExtResource("2_yc580")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_etpi1"]
+sources/0 = SubResource("TileSetAtlasSource_hehef")
+
 [sub_resource type="Resource" id="Resource_tikdu"]
 script = ExtResource("7_yc580")
 metadata/_custom_type_script = "uid://b04oehinvuvjw"
@@ -333,6 +361,7 @@ tile_map_data = PackedByteArray("AAAXABUAAQANAAQAAAAYABUAAQAMAAUAAAAZABUAAQANAAQ
 tile_set = SubResource("TileSet_xu2mj")
 
 [node name="background" type="TileMapLayer" parent="Terrain" unique_id=2015776368]
+tile_set = SubResource("TileSet_etpi1")
 
 [node name="Player" parent="." unique_id=158582207 instance=ExtResource("2_lxj1k")]
 position = Vector2(580, 336)
