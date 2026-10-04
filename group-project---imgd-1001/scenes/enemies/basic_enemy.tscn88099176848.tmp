@@ -126,7 +126,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
 radius = 8.0
 
-[node name="BasicEnemy" type="CharacterBody2D" unique_id=1623135414]
+[node name="BasicEnemy" type="Node2D" unique_id=1538006154]
 script = ExtResource("1_md22f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1350943342]
@@ -136,14 +136,8 @@ autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1025177947]
 
-[node name="hurtbox" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1565721171]
+[node name="hurtbox" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1831001351]
 light_mask = 2
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_dqkch")
-
-[node name="hurtbox" type="CollisionShape2D" parent="." unique_id=1831001351]
-light_mask = 2
-scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_dqkch")
 
 [connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,11 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
-
-
 @export var SPEED : float
 @export var JUMP_VELOCITY: float
 @export var AIR_SPEED: float
+@export var player : float
 var standard_AIR_SPEED: float
 
 @export var health : float
