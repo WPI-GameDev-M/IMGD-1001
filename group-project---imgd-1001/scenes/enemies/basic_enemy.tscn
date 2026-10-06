@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://b7yxf8iwhehl4" path="res://assets/Enemy Textures/BasicEnemey Sprite Sheet.png" id="1_3i4hm"]
 [ext_resource type="Script" uid="uid://clgjtxlhodlr8" path="res://scripts/enemies/basic_enemy.gd" id="1_md22f"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8xi43"]
+radius = 3.0
+height = 9.5
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xi43"]
 atlas = ExtResource("1_3i4hm")
 region = Rect2(0, 0, 16, 16)
@@ -123,27 +127,42 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
-radius = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w50kh"]
+radius = 12.0
+height = 38.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohc3q"]
+size = Vector2(127, 62)
 
 [node name="BasicEnemy" type="CharacterBody2D" unique_id=1623135414]
+collision_layer = 4
 script = ExtResource("1_md22f")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1025177947]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="Area2D" unique_id=1565721171]
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_8xi43")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1350943342]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_08gdh")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1025177947]
+[node name="BodyShape" type="CollisionShape2D" parent="." unique_id=48735459]
+shape = SubResource("CapsuleShape2D_w50kh")
 
-[node name="hurtbox" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1565721171]
-light_mask = 2
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_dqkch")
+[node name="DetectionRadius" type="Area2D" parent="." unique_id=1977281759]
+collision_layer = 16
+collision_mask = 2
 
-[node name="hurtbox" type="CollisionShape2D" parent="." unique_id=1831001351]
-light_mask = 2
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_dqkch")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius" unique_id=327482744]
+position = Vector2(0.5, -15)
+shape = SubResource("RectangleShape2D_ohc3q")
 
-[connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_PlayDetection_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_PlayDetection_body_exited"]

@@ -15,5 +15,7 @@ func handle_input(event: InputEvent) -> void:
 		transitioned.emit("OnGround/Moving")
 	elif Input.is_action_just_pressed("Jump"):
 		transitioned.emit("InAir/Jumping")
+	elif Input.is_action_just_pressed('Legs'):
+		transitioned.emit('OnGround/GroundSpecialAbility')
 
 	

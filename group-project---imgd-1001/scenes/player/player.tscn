@@ -168,6 +168,8 @@ metadata/_custom_type_script = "uid://c2hicd48p7v1f"
 
 [node name="Player" type="CharacterBody2D" unique_id=158582207]
 z_index = 5
+collision_layer = 2
+collision_mask = 33
 script = ExtResource("1_je7p5")
 SPEED = 150.0
 JUMP_VELOCITY = -200.0

@@ -28,8 +28,10 @@ func physics_update(delta: float) -> void:
 
 	#print(character.velocity.x)
 func handle_input(event: InputEvent) -> void:
-		
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed('Legs'):
+		transitioned.emit('OnGround/GroundSpecialAbility')
+	
+	elif Input.is_action_just_pressed("Jump"):
 		if player.timeSinceGrounded <= .015:
 			#print("Coyote!")
 			transitioned.emit("InAir/Jumping")

@@ -19,9 +19,6 @@ func physics_update(delta: float) -> void:
 	
 	if Input.is_action_just_pressed('Jump'):
 		transitioned.emit('InAir/Jumping')
-	
-	if Input.is_action_just_pressed('Legs'):
-		transitioned.emit('OnGround/GroundSpecialAbility')
 		
 		
 	player.move_and_slide()

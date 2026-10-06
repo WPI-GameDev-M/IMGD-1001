@@ -100,6 +100,8 @@ animations = [{
 radius = 6.0827627
 
 [node name="ArmsPickup" type="Area2D" unique_id=494250106]
+collision_layer = 32
+collision_mask = 2
 script = ExtResource("1_axyj1")
 stored_arm = ExtResource("2_p6afu")
 

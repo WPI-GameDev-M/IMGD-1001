@@ -315,6 +315,7 @@ texture = SubResource("CompressedTexture2D_0x33i")
 
 [sub_resource type="TileSet" id="TileSet_xu2mj"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_h5ue7")
 sources/1 = SubResource("TileSetAtlasSource_aobdc")
 
@@ -384,9 +385,6 @@ offset_bottom = 40.0
 
 [node name="Enemies" type="Node" parent="." unique_id=1102769652]
 
-[node name="BasicEnemy" parent="Enemies" unique_id=1538006154 instance=ExtResource("4_h5ue7")]
-position = Vector2(516, 328)
-
 [node name="BasicEnemy2" parent="Enemies" unique_id=1366649207 instance=ExtResource("4_h5ue7")]
 position = Vector2(367, 328)
 
@@ -407,6 +405,7 @@ stored_leg = SubResource("Resource_tikdu")
 
 [node name="Killzone" type="Area2D" parent="." unique_id=1811899779]
 position = Vector2(580, 380)
+collision_mask = 2
 script = ExtResource("3_lxj1k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1854669719]
