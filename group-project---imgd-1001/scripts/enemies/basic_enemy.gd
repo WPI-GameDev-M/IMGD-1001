@@ -6,6 +6,7 @@ var chase = true
 var player
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # var player_test = get_tree().get_nodes_in_group("player")[0]
+var health = 100
 
 #checks once a physics tick
 func _physics_process(delta):
