@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var time_left: int = 30
+var time_left: int = 300
 var player
 
 @onready var timer_label: Label = $Control/TimerLabel
@@ -9,7 +9,7 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer_label.text = "00:30"
+	timer_label.text = "5:00"
 	player = get_tree().get_first_node_in_group("player")
 	
 	if player:

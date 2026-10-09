@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://tqwm0p6ypgog" path="res://scenes/LegsPickup.tscn" id="7_mkbhm"]
 [ext_resource type="Script" uid="uid://b04oehinvuvjw" path="res://resources/double_jump.gd" id="8_07kga"]
 [ext_resource type="Script" uid="uid://5ae0wqesejb8" path="res://scripts/world/Killzone.gd" id="9_vsm43"]
+[ext_resource type="PackedScene" uid="uid://do32qxr7ieb86" path="res://scenes/pause_menu.tscn" id="10_6e1oq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5ue7"]
 texture = ExtResource("1_75a3v")
@@ -416,5 +417,7 @@ script = ExtResource("9_vsm43")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1854669719]
 shape = SubResource("WorldBoundaryShape2D_xu2mj")
+
+[node name="PauseMenu" parent="." unique_id=2111355085 instance=ExtResource("10_6e1oq")]
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
