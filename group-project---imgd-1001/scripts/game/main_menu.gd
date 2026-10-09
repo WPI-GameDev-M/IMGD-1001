@@ -24,7 +24,7 @@ func _on_mouse_exited(chosen_button: Button) -> void:
 
 
 func _on_button_pressed_Start() -> void:
-	var level_one = preload("res://scenes/levels/test_screen.tscn")
+	var level_one = preload("res://scenes/levels/Level 0.tscn")
 	get_tree().change_scene_to_packed(level_one)
 	
 
@@ -58,5 +58,5 @@ func _on_button_mouse_entered_Back() -> void:
 # Click spacebar to start game and skip main menu
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Jump"):
-		var level_one = preload("res://scenes/levels/test_screen.tscn")
+		var level_one = preload("res://scenes/levels/Level 0.tscn")
 		get_tree().change_scene_to_packed(level_one)
