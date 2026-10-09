@@ -3,6 +3,7 @@ extends State
 
 @export var legs_Ability : AbilityResource
 
+
 var next_state
 
 func enter() -> void:
@@ -18,6 +19,7 @@ func physics_update(delta: float) -> void:
 		next_state = legs_Ability.on_physics_update(player, delta)
 	
 	if next_state != "":
+		
 		transitioned.emit(next_state)
 
 func exit() -> void:

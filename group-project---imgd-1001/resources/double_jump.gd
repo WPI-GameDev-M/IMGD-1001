@@ -1,6 +1,7 @@
 class_name DoubleJump
 extends AbilityResource
 
+
 func on_enter(player: Player) ->void:
 		player.velocity.y = player.JUMP_VELOCITY
 

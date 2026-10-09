@@ -16,4 +16,7 @@ func physics_update(delta: float) -> void:
 	
 	player.move_and_slide()
 	
+func handle_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed('Legs'):
+		transitioned.emit('InAir/AirSpecialAbility')
 	
